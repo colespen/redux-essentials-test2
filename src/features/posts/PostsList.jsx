@@ -1,6 +1,9 @@
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 export const PostsList = () => {
+  // useSelector() hook reads data from store
+  // runs whenever store is updated
   const posts = useSelector(state => state.posts);
 
   const renderedPosts = posts.slice(1).map(post => (
@@ -16,6 +19,9 @@ export const PostsList = () => {
               post.content
           }
         </p>
+        <Link to={`/posts/${post.id}`} className="button muted-button">
+          View Post
+        </Link>
       </article>
       :
       null
