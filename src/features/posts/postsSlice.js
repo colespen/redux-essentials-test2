@@ -10,7 +10,7 @@ const postsSlice = createSlice({
   initialState,
   reducers: {
     // action is {type: '.../...', payload: 0}
-    postAdded(state, action) {
+    postAdded: (state, action) => {
       state.push(action.payload)
     }
   }
