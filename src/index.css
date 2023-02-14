@@ -116,6 +116,8 @@ section h1 {
   padding: 0.25rem 0.25rem;
   border: 1px solid rgb(177, 174, 174);
   border-radius: 7px;
+  overflow: hidden;
+  word-break: break-word;
 }
 
 .posts-list .post-excerpt + .post-excerpt {
