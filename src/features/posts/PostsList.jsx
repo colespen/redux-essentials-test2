@@ -1,10 +1,9 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-import './styles.css';
-
 import { PostAuthor } from "./PostAuthor";
-import TimeAgo from '../../components/TimeAgo';
+import TimeAgo from './TimeAgo';
+import ReactionButtons from "./ReactionButtons";
 
 export const PostsList = () => {
   // useSelector() hook reads data from store
@@ -29,12 +28,11 @@ export const PostsList = () => {
               post.content
           }
         </p>
-        <div className="post-footer">
-          <PostAuthor userId={post.user} />
-          <Link to={`/posts/${post.id}`} className="button muted-button">
-            View Post
-          </Link>
-        </div>
+
+        <ReactionButtons post={post} />
+        <Link to={`/posts/${post.id}`} className="button muted-button">
+          View Post
+        </Link>
       </article>
       :
       null
