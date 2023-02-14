@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { nanoid } from '@reduxjs/toolkit';
 
 const initialState = [
-  { id: '', title: '', content: '' },
+  { id: '', title: '', content: '', date: '' },
 ];
 
 const postsSlice = createSlice({
@@ -16,12 +16,14 @@ const postsSlice = createSlice({
         state.push(action.payload);
       },
       // prepare callback function
-      prepare: (title, content) => {
+      prepare: (title, content, userId, date) => {
         return {
           payload: {
             id: nanoid(),
+            date: new Date().toISOString(),
             title,
-            content
+            content,
+            user: userId
           }
         };
       }
