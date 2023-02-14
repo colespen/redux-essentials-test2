@@ -8,6 +8,7 @@ import {
 
 import { Navbar } from './app/Navbar';
 import { PostsList } from './features/posts/PostsList';
+import { AddPostForm } from './features/posts/addPostsForm';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
             path="/"
             render={() => (
               <>
+                <AddPostForm />
                 <PostsList />
               </>
             )}
