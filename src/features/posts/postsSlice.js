@@ -1,11 +1,17 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { nanoid } from '@reduxjs/toolkit';
+import { client } from '../../api/client';
 
 const initialState = {
   posts: [],
   status: 'idle',
   error: null
 };
+
+export const fetchPosts = createAsyncThunk('posts/getchPosts', async () => {
+  const response = await client.get('/fakeApi/posts');
+  return response.data;
+});
 
 const postsSlice = createSlice({
   name: 'posts',
@@ -58,7 +64,7 @@ export const { postAdded, postUpdated, reactionAdded } = postsSlice.actions;
 export default postsSlice.reducer;
 
 //                            state param is root Redux state object
-export const selectAllPosts = state => state.posts.posts
+export const selectAllPosts = state => state.posts.posts;
 
 export const selectPostById = (state, postId) =>
-  state.posts.posts.find(post => post.id === postId)
+  state.posts.posts.find(post => post.id === postId);

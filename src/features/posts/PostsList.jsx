@@ -1,20 +1,30 @@
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { selectAllPosts } from './postsSlice'
+import { selectAllPosts, fetchPosts } from './postsSlice';
 import { PostAuthor } from "./PostAuthor";
 import TimeAgo from './TimeAgo';
 import ReactionButtons from "./ReactionButtons";
 
 export const PostsList = () => {
+  const dispatch = useDispatch();
   // useSelector() hook reads data from store
   // runs whenever store is updated
   const posts = useSelector(selectAllPosts);
-  const orderedPosts = posts.slice(1).sort((a, b) => b.date.localeCompare(a.date));
+  console.log(posts)
+  const postStatus = useSelector(state => state.posts.status);
 
+  useEffect(()=> {
+    if (postStatus === 'idle') {
+      dispatch(fetchPosts());
+    }
+  }, [postStatus, dispatch])
+
+  const orderedPosts = posts.slice().sort((a, b) => b.date.localeCompare(a.date));
   const renderedPosts = orderedPosts.map(post => (
 
-    (posts.length > 1) ?
+    (posts.length > 0) ?
       <article className="post-excerpt" key={post.id}>
         <h3>{post && post.title}</h3>
         <div>
@@ -43,7 +53,7 @@ export const PostsList = () => {
   return (
     <section className="posts-list">
       {
-        (posts.length > 1) ?
+        (posts.length > 0) ?
           <h2>Posts</h2>
           :
           <h2>It's quiet...</h2>
