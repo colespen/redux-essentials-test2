@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
+import { selectAllPosts } from './postsSlice'
 import { PostAuthor } from "./PostAuthor";
 import TimeAgo from './TimeAgo';
 import ReactionButtons from "./ReactionButtons";
@@ -8,7 +9,7 @@ import ReactionButtons from "./ReactionButtons";
 export const PostsList = () => {
   // useSelector() hook reads data from store
   // runs whenever store is updated
-  const posts = useSelector(state => state.posts);
+  const posts = useSelector(selectAllPosts);
   const orderedPosts = posts.slice(1).sort((a, b) => b.date.localeCompare(a.date));
 
   const renderedPosts = orderedPosts.map(post => (
