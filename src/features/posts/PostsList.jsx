@@ -11,7 +11,7 @@ import { selectAllPosts, fetchPosts } from './postsSlice';
 
 const PostExcerpt = ({ post }) => {
   return (
-    <article className="post-excerpt">
+    <article className="post-excerpt" key={post.id}>
       <h3>{post.title}</h3>
       <div>
         <PostAuthor userId={post.user} />
