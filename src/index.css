@@ -38,12 +38,25 @@ nav section {
 }
 
 nav a,
+nav .button,
 nav a:active {
   font-weight: 700;
-  padding: 0.25rem 1.5rem;
+  padding: 0.25rem 1.5rem 0.25rem 0.6rem;
   border-radius: 4px;
   color: white !important;
   background: #481499;
+}
+
+nav .button {
+  margin-left: 5px;
+  background: #353cc7;
+  border-color: transparent;
+  font-size: 15px;
+  text-align: left;
+  border: none;
+}
+nav .button:hover {
+  border-color: transparent;
 }
 
 nav a:first-of-type {
@@ -56,16 +69,20 @@ nav a:hover {
 }
 
 .navContent {
+  height: 24%;
   display: flex;
   justify-content: space-between;
 }
 
 .navLinks {
   display: flex;
+  font-size: 15px;
 }
 
 .navLinks a {
+  text-decoration: none;
   margin-left: 5px;
+  height: 100%;
 }
 
 .navLinks a .badge {
