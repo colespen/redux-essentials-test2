@@ -75,5 +75,5 @@ export const selectAllPosts = (state) => state.posts.posts;
 export const selectPostById = (state, postId) =>
   state.posts.posts.find((post) => post.id === postId);
 
-export const selectPostByUserId = (state, userId) =>
-  state.posts.posts.find((post) => post.user === userId);
+// export const selectPostByUserId = (state, userId) =>
+//   state.posts.posts.find((post) => post.user === userId);

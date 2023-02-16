@@ -3,15 +3,13 @@ import { Link } from 'react-router-dom';
 
 import { selectPostById } from './postsSlice';
 import { PostAuthor } from './PostAuthor';
-import TimeAgo from './TimeAgo';
-import ReactionButtons from './ReactionButtons';
+import { TimeAgo } from './TimeAgo';
+import { ReactionButtons } from './ReactionButtons';
 
 export const SinglePostPage = ({ match }) => {
   const { postId } = match.params;
 
   const post = useSelector(state => selectPostById(state, postId));
-
-  console.log("post in SinglePage: ", post)
 
   if (!post) {
     return (

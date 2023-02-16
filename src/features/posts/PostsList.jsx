@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 import { Spinner } from '../../components/Spinner';
 import { PostAuthor } from "./PostAuthor";
-import TimeAgo from './TimeAgo';
-import ReactionButtons from "./ReactionButtons";
+import { TimeAgo } from './TimeAgo';
+import { ReactionButtons } from "./ReactionButtons";
 
 import { selectAllPosts, fetchPosts } from './postsSlice';
 
@@ -40,7 +40,7 @@ export const PostsList = () => {
   // runs whenever store is updated
   const posts = useSelector(selectAllPosts);
   const postStatus = useSelector(state => state.posts.status);
-  const error = useSelector(state => state.posts.error)
+  const error = useSelector(state => state.posts.error);
 
   useEffect(() => {
     if (postStatus === 'idle') {

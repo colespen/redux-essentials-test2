@@ -4,7 +4,6 @@ import { selectAllUsers } from './usersSlice';
 
 export const UsersList = () => {
   const users = useSelector(selectAllUsers);
-  console.log("users: ", users)
 
   const renderedUsers = users.map(user => (
     <li key={user.id}>
