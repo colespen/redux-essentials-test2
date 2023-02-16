@@ -1,10 +1,9 @@
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { selectUserById } from '../users/usersSlice';
 
 export const PostAuthor = ({ userId }) => {
-  const author = useSelector(state =>
-    state.users.find(user => user.id === userId)
-  );
+  const author = useSelector(selectUserById);
 
   return (
     <span>

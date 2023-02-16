@@ -15,8 +15,6 @@ export const Navbar = () => {
   
   let unreadNotificationsBadge
 
-console.log(numUnreadNotifications)
-
   if (numUnreadNotifications > 0) {
     unreadNotificationsBadge = (
       <span className="badge">{numUnreadNotifications}</span>
