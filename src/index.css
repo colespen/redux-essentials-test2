@@ -48,15 +48,16 @@ nav a:active {
 }
 
 nav .button {
+  padding-top: 9px;
   margin-left: 5px;
   background: #353cc7;
-  border-color: transparent;
   font-size: 15px;
   text-align: left;
   border: none;
+  display: flex;
 }
 nav .button:hover {
-  border-color: transparent;
+  border: none;
 }
 
 nav a:first-of-type {
@@ -86,7 +87,6 @@ nav a:hover {
 }
 
 .navLinks a .badge {
-  margin-left: 5px;
   position: relative;
   top: -3px;
 }
