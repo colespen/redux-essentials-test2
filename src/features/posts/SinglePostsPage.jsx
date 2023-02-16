@@ -11,6 +11,8 @@ export const SinglePostPage = ({ match }) => {
 
   const post = useSelector(state => selectPostById(state, postId));
 
+  console.log("post in SinglePage: ", post)
+
   if (!post) {
     return (
       <section>

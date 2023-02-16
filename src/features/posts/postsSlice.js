@@ -7,6 +7,7 @@ const initialState = {
   error: null,
 };
 
+// accepts Redux action type string and callback fn that should return promise
 export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
   const response = await client.get('/fakeApi/posts');
   return response.data;
@@ -67,8 +68,12 @@ export const { postAdded, postUpdated, reactionAdded } = postsSlice.actions;
 
 export default postsSlice.reducer;
 
-//                            state param is root Redux state object
+// reusable selector fn's
+//                             state param is root Redux state object
 export const selectAllPosts = (state) => state.posts.posts;
 
 export const selectPostById = (state, postId) =>
   state.posts.posts.find((post) => post.id === postId);
+
+export const selectPostByUserId = (state, userId) =>
+  state.posts.posts.find((post) => post.user === userId);
