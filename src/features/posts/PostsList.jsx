@@ -1,4 +1,4 @@
-import { useEffect, memo } from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -39,7 +39,6 @@ let PostExcerpt = ({ postId }) => {
     </article>
   );
 };
-PostExcerpt = memo(PostExcerpt);
 
 
 export const PostsList = () => {

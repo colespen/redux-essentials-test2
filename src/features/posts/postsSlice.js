@@ -63,7 +63,7 @@ const postsSlice = createSlice({
       .addCase(fetchPosts.fulfilled, (state, action) => {
         state.status = 'succeeded';
         // Add any fetched posts to the array
-        // Use the `upsertMany` reducer as a mutating update utility
+        // Use `upsertMany` (reducer function) as a mutating update utility
             // it merges prexisting state together based on matching IDs 
         postsAdapter.upsertMany(state, action.payload);
       })
@@ -71,7 +71,7 @@ const postsSlice = createSlice({
         state.status = 'failed';
         state.error = action.error.message;
       })
-      // Use the `addOne` reducer for the fulfilled case
+      // Use `addOne` (reducer function) for the fulfilled case
       .addCase(addNewPost.fulfilled, postsAdapter.addOne);
   },
 });
